@@ -1,0 +1,13 @@
+.introScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 1s linear 2s;
+}

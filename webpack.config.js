@@ -1,11 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
       inject: 'body'
+    }),
+    new webpack.WatchIgnorePlugin({
+      paths: [/css\.d\.ts$/]
     })
   ],
   entry: './src/index.tsx',
@@ -52,8 +56,14 @@ module.exports = {
       '.js',
       '.css',
       '.scss'
-    ]
+    ],
+    alias: {
+      components: path.resolve(__dirname, 'src/components'),
+      containers: path.resolve(__dirname, 'src/containers'),
+      App: path.resolve(__dirname, 'src/App')
+    }
   },
+  devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -63,6 +73,7 @@ module.exports = {
       directory: path.join(__dirname, 'public')
     },
     compress: true,
-    port: 9000
+    port: 9000,
+    historyApiFallback: true
   }
 };

@@ -1,0 +1,26 @@
+.typewriter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4af626;
+  font-size: 5em;
+  height: 100vh;
+}
+
+.terminalCursor {
+  animation: blink-animation 1.5s steps(5, start) 1s infinite;
+  -webkit-animation: blink-animation 1.5s steps(5, start) 1s infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
